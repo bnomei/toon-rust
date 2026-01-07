@@ -1,14 +1,32 @@
 //! Conversion history panel.
 
 use ratatui::{
-    layout::{Alignment, Constraint, Direction, Layout, Rect},
-    text::{Line, Span},
-    widgets::{Block, Borders, List, ListItem, Paragraph},
+    layout::{
+        Alignment,
+        Constraint,
+        Direction,
+        Layout,
+        Rect,
+    },
+    text::{
+        Line,
+        Span,
+    },
+    widgets::{
+        Block,
+        Borders,
+        List,
+        ListItem,
+        Paragraph,
+    },
     Frame,
 };
 
 use crate::tui::{
-    state::{format_timestamp, AppState},
+    state::{
+        format_timestamp,
+        AppState,
+    },
     theme::Theme,
 };
 
@@ -16,8 +34,15 @@ use crate::tui::{
 ///
 /// # Examples
 /// ```no_run
-/// use ratatui::{backend::TestBackend, Terminal};
-/// use toon_format::tui::{components::HistoryPanel, state::AppState, theme::Theme};
+/// use ratatui::{
+///     backend::TestBackend,
+///     Terminal,
+/// };
+/// use toon_format::tui::{
+///     components::HistoryPanel,
+///     state::AppState,
+///     theme::Theme,
+/// };
 ///
 /// let backend = TestBackend::new(80, 24);
 /// let mut terminal = Terminal::new(backend).unwrap();
@@ -34,8 +59,15 @@ impl HistoryPanel {
     ///
     /// # Examples
     /// ```no_run
-    /// use ratatui::{backend::TestBackend, Terminal};
-    /// use toon_format::tui::{components::HistoryPanel, state::AppState, theme::Theme};
+    /// use ratatui::{
+    ///     backend::TestBackend,
+    ///     Terminal,
+    /// };
+    /// use toon_format::tui::{
+    ///     components::HistoryPanel,
+    ///     state::AppState,
+    ///     theme::Theme,
+    /// };
     ///
     /// let backend = TestBackend::new(80, 24);
     /// let mut terminal = Terminal::new(backend).unwrap();

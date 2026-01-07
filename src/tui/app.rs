@@ -1,24 +1,44 @@
-use std::{fs, path::PathBuf, time::Duration};
+use std::{
+    fs,
+    path::PathBuf,
+    time::Duration,
+};
 
-use anyhow::{Context, Result};
-use crossterm::event::{KeyCode, KeyEvent};
+use anyhow::{
+    Context,
+    Result,
+};
+use crossterm::event::{
+    KeyCode,
+    KeyEvent,
+};
 #[cfg(feature = "cli-stats")]
 use tiktoken_rs::cl100k_base;
 
+#[cfg(feature = "cli-stats")]
+use crate::tui::state::ConversionStats;
 use crate::{
-    decode, encode,
+    decode,
+    encode,
     tui::{
         components::FileBrowser,
-        events::{Event, EventHandler},
-        keybindings::{Action, KeyBindings},
+        events::{
+            Event,
+            EventHandler,
+        },
+        keybindings::{
+            Action,
+            KeyBindings,
+        },
         repl_command::ReplCommand,
-        state::{now_timestamp, AppState, ConversionHistory},
+        state::{
+            now_timestamp,
+            AppState,
+            ConversionHistory,
+        },
         ui,
     },
 };
-
-#[cfg(feature = "cli-stats")]
-use crate::tui::state::ConversionStats;
 
 /// Main TUI application managing state, events, and rendering.
 ///
@@ -56,7 +76,11 @@ impl<'a> TuiApp<'a> {
     /// # Examples
     /// ```no_run
     /// use std::io::stdout;
-    /// use ratatui::{backend::CrosstermBackend, Terminal};
+    ///
+    /// use ratatui::{
+    ///     backend::CrosstermBackend,
+    ///     Terminal,
+    /// };
     /// use toon_format::tui::app::TuiApp;
     ///
     /// let mut app = TuiApp::new();

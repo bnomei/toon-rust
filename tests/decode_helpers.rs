@@ -1,5 +1,12 @@
-use serde_json::{json, Value};
-use toon_format::{decode_no_coerce_with_options, decode_strict_with_options, DecodeOptions};
+use serde_json::{
+    json,
+    Value,
+};
+use toon_format::{
+    decode_no_coerce_with_options,
+    decode_strict_with_options,
+    DecodeOptions,
+};
 
 #[test]
 fn test_decode_strict_with_options_forces_strict() {

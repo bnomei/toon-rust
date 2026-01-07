@@ -1,8 +1,17 @@
 use crate::{
-    types::{Delimiter, EncodeOptions, Number, ToonResult},
+    types::{
+        Delimiter,
+        EncodeOptions,
+        Number,
+        ToonResult,
+    },
     utils::{
         number::write_canonical_number_into,
-        string::{escape_string_into, is_valid_unquoted_key, needs_quoting},
+        string::{
+            escape_string_into,
+            is_valid_unquoted_key,
+            needs_quoting,
+        },
         QuotingContext,
     },
 };
@@ -11,8 +20,10 @@ use crate::{
 ///
 /// # Examples
 /// ```
-/// use toon_format::EncodeOptions;
-/// use toon_format::encode::writer::Writer;
+/// use toon_format::{
+///     encode::writer::Writer,
+///     EncodeOptions,
+/// };
 ///
 /// let mut writer = Writer::new(EncodeOptions::default());
 /// writer.write_str("a: 1").unwrap();
@@ -31,8 +42,10 @@ impl Writer {
     ///
     /// # Examples
     /// ```
-    /// use toon_format::EncodeOptions;
-    /// use toon_format::encode::writer::Writer;
+    /// use toon_format::{
+    ///     encode::writer::Writer,
+    ///     EncodeOptions,
+    /// };
     ///
     /// let writer = Writer::new(EncodeOptions::default());
     /// let _ = writer;
@@ -52,8 +65,10 @@ impl Writer {
     ///
     /// # Examples
     /// ```
-    /// use toon_format::EncodeOptions;
-    /// use toon_format::encode::writer::Writer;
+    /// use toon_format::{
+    ///     encode::writer::Writer,
+    ///     EncodeOptions,
+    /// };
     ///
     /// let mut writer = Writer::new(EncodeOptions::default());
     /// writer.write_str("a: 1").unwrap();
@@ -67,8 +82,10 @@ impl Writer {
     ///
     /// # Examples
     /// ```
-    /// use toon_format::EncodeOptions;
-    /// use toon_format::encode::writer::Writer;
+    /// use toon_format::{
+    ///     encode::writer::Writer,
+    ///     EncodeOptions,
+    /// };
     ///
     /// let mut writer = Writer::new(EncodeOptions::default());
     /// writer.write_str("a").unwrap();
@@ -83,8 +100,10 @@ impl Writer {
     ///
     /// # Examples
     /// ```
-    /// use toon_format::EncodeOptions;
-    /// use toon_format::encode::writer::Writer;
+    /// use toon_format::{
+    ///     encode::writer::Writer,
+    ///     EncodeOptions,
+    /// };
     ///
     /// let mut writer = Writer::new(EncodeOptions::default());
     /// writer.write_char('x').unwrap();
@@ -99,8 +118,10 @@ impl Writer {
     ///
     /// # Examples
     /// ```
-    /// use toon_format::EncodeOptions;
-    /// use toon_format::encode::writer::Writer;
+    /// use toon_format::{
+    ///     encode::writer::Writer,
+    ///     EncodeOptions,
+    /// };
     ///
     /// let mut writer = Writer::new(EncodeOptions::default());
     /// writer.write_newline().unwrap();
@@ -115,8 +136,11 @@ impl Writer {
     ///
     /// # Examples
     /// ```
-    /// use toon_format::{EncodeOptions, Indent};
-    /// use toon_format::encode::writer::Writer;
+    /// use toon_format::{
+    ///     encode::writer::Writer,
+    ///     EncodeOptions,
+    ///     Indent,
+    /// };
     ///
     /// let opts = EncodeOptions::new().with_indent(Indent::Spaces(2));
     /// let mut writer = Writer::new(opts);
@@ -138,8 +162,11 @@ impl Writer {
     ///
     /// # Examples
     /// ```
-    /// use toon_format::{Delimiter, EncodeOptions};
-    /// use toon_format::encode::writer::Writer;
+    /// use toon_format::{
+    ///     encode::writer::Writer,
+    ///     Delimiter,
+    ///     EncodeOptions,
+    /// };
     ///
     /// let opts = EncodeOptions::new().with_delimiter(Delimiter::Pipe);
     /// let mut writer = Writer::new(opts);
@@ -155,8 +182,10 @@ impl Writer {
     ///
     /// # Examples
     /// ```
-    /// use toon_format::EncodeOptions;
-    /// use toon_format::encode::writer::Writer;
+    /// use toon_format::{
+    ///     encode::writer::Writer,
+    ///     EncodeOptions,
+    /// };
     ///
     /// let mut writer = Writer::new(EncodeOptions::default());
     /// writer.write_key("simple").unwrap();
@@ -174,11 +203,15 @@ impl Writer {
     ///
     /// # Examples
     /// ```
-    /// use toon_format::EncodeOptions;
-    /// use toon_format::encode::writer::Writer;
+    /// use toon_format::{
+    ///     encode::writer::Writer,
+    ///     EncodeOptions,
+    /// };
     ///
     /// let mut writer = Writer::new(EncodeOptions::default());
-    /// writer.write_array_header(Some("items"), 2, None, 0).unwrap();
+    /// writer
+    ///     .write_array_header(Some("items"), 2, None, 0)
+    ///     .unwrap();
     /// assert_eq!(writer.finish(), "items[2]:");
     /// ```
     pub fn write_array_header(
@@ -224,8 +257,10 @@ impl Writer {
     ///
     /// # Examples
     /// ```
-    /// use toon_format::EncodeOptions;
-    /// use toon_format::encode::writer::Writer;
+    /// use toon_format::{
+    ///     encode::writer::Writer,
+    ///     EncodeOptions,
+    /// };
     ///
     /// let mut writer = Writer::new(EncodeOptions::default());
     /// writer.write_empty_array_with_key(Some("items"), 0).unwrap();
@@ -257,9 +292,11 @@ impl Writer {
     ///
     /// # Examples
     /// ```
-    /// use toon_format::EncodeOptions;
-    /// use toon_format::utils::QuotingContext;
-    /// use toon_format::encode::writer::Writer;
+    /// use toon_format::{
+    ///     encode::writer::Writer,
+    ///     utils::QuotingContext,
+    ///     EncodeOptions,
+    /// };
     ///
     /// let writer = Writer::new(EncodeOptions::default());
     /// assert!(writer.needs_quoting("true", QuotingContext::ObjectValue));
@@ -277,8 +314,10 @@ impl Writer {
     ///
     /// # Examples
     /// ```
-    /// use toon_format::EncodeOptions;
-    /// use toon_format::encode::writer::Writer;
+    /// use toon_format::{
+    ///     encode::writer::Writer,
+    ///     EncodeOptions,
+    /// };
     ///
     /// let mut writer = Writer::new(EncodeOptions::default());
     /// writer.write_quoted_string("a b").unwrap();
@@ -295,12 +334,16 @@ impl Writer {
     ///
     /// # Examples
     /// ```
-    /// use toon_format::EncodeOptions;
-    /// use toon_format::utils::QuotingContext;
-    /// use toon_format::encode::writer::Writer;
+    /// use toon_format::{
+    ///     encode::writer::Writer,
+    ///     utils::QuotingContext,
+    ///     EncodeOptions,
+    /// };
     ///
     /// let mut writer = Writer::new(EncodeOptions::default());
-    /// writer.write_value("hello", QuotingContext::ObjectValue).unwrap();
+    /// writer
+    ///     .write_value("hello", QuotingContext::ObjectValue)
+    ///     .unwrap();
     /// assert_eq!(writer.finish(), "hello");
     /// ```
     pub fn write_value(&mut self, s: &str, context: QuotingContext) -> ToonResult<()> {
@@ -315,12 +358,16 @@ impl Writer {
     ///
     /// # Examples
     /// ```
-    /// use toon_format::EncodeOptions;
-    /// use toon_format::types::Number;
-    /// use toon_format::encode::writer::Writer;
+    /// use toon_format::{
+    ///     encode::writer::Writer,
+    ///     types::Number,
+    ///     EncodeOptions,
+    /// };
     ///
     /// let mut writer = Writer::new(EncodeOptions::default());
-    /// writer.write_canonical_number(&Number::from(3.14f64)).unwrap();
+    /// writer
+    ///     .write_canonical_number(&Number::from(3.14f64))
+    ///     .unwrap();
     /// assert!(writer.finish().starts_with("3.14"));
     /// ```
     pub fn write_canonical_number(&mut self, n: &Number) -> ToonResult<()> {
@@ -332,8 +379,10 @@ impl Writer {
     ///
     /// # Examples
     /// ```
-    /// use toon_format::EncodeOptions;
-    /// use toon_format::encode::writer::Writer;
+    /// use toon_format::{
+    ///     encode::writer::Writer,
+    ///     EncodeOptions,
+    /// };
     ///
     /// let mut writer = Writer::new(EncodeOptions::default());
     /// writer.write_usize(10).unwrap();
@@ -345,12 +394,16 @@ impl Writer {
         Ok(())
     }
 
-    /// Push a new delimiter onto the stack (for nested arrays with different delimiters).
+    /// Push a new delimiter onto the stack (for nested arrays with different
+    /// delimiters).
     ///
     /// # Examples
     /// ```
-    /// use toon_format::{Delimiter, EncodeOptions};
-    /// use toon_format::encode::writer::Writer;
+    /// use toon_format::{
+    ///     encode::writer::Writer,
+    ///     Delimiter,
+    ///     EncodeOptions,
+    /// };
     ///
     /// let mut writer = Writer::new(EncodeOptions::default());
     /// writer.push_active_delimiter(Delimiter::Pipe);
@@ -362,8 +415,11 @@ impl Writer {
     ///
     /// # Examples
     /// ```
-    /// use toon_format::{Delimiter, EncodeOptions};
-    /// use toon_format::encode::writer::Writer;
+    /// use toon_format::{
+    ///     encode::writer::Writer,
+    ///     Delimiter,
+    ///     EncodeOptions,
+    /// };
     ///
     /// let mut writer = Writer::new(EncodeOptions::default());
     /// writer.push_active_delimiter(Delimiter::Pipe);

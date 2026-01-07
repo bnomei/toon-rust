@@ -1,6 +1,9 @@
 use std::fmt;
 
-use serde::{Deserialize, Serialize};
+use serde::{
+    Deserialize,
+    Serialize,
+};
 
 /// Delimiter character used to separate array elements.
 ///
@@ -36,7 +39,8 @@ impl Delimiter {
         }
     }
 
-    /// Get the string representation for metadata (empty for comma, char for others).
+    /// Get the string representation for metadata (empty for comma, char for
+    /// others).
     ///
     /// # Examples
     /// ```

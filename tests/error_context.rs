@@ -1,6 +1,9 @@
 use std::sync::Arc;
 
-use toon_format::types::{ErrorContext, ToonError};
+use toon_format::types::{
+    ErrorContext,
+    ToonError,
+};
 
 #[test]
 fn test_error_context_inline_rendering() {

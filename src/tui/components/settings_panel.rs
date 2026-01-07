@@ -1,23 +1,53 @@
 //! Settings panel for configuring encode/decode options.
 
 use ratatui::{
-    layout::{Alignment, Constraint, Direction, Layout, Rect},
-    text::{Line, Span},
-    widgets::{Block, Borders, List, ListItem, Paragraph},
+    layout::{
+        Alignment,
+        Constraint,
+        Direction,
+        Layout,
+        Rect,
+    },
+    text::{
+        Line,
+        Span,
+    },
+    widgets::{
+        Block,
+        Borders,
+        List,
+        ListItem,
+        Paragraph,
+    },
     Frame,
 };
 
 use crate::{
-    tui::{state::AppState, theme::Theme},
-    types::{Delimiter, Indent, KeyFoldingMode, PathExpansionMode},
+    tui::{
+        state::AppState,
+        theme::Theme,
+    },
+    types::{
+        Delimiter,
+        Indent,
+        KeyFoldingMode,
+        PathExpansionMode,
+    },
 };
 
 /// Settings panel rendering.
 ///
 /// # Examples
 /// ```no_run
-/// use ratatui::{backend::TestBackend, Terminal};
-/// use toon_format::tui::{components::SettingsPanel, state::AppState, theme::Theme};
+/// use ratatui::{
+///     backend::TestBackend,
+///     Terminal,
+/// };
+/// use toon_format::tui::{
+///     components::SettingsPanel,
+///     state::AppState,
+///     theme::Theme,
+/// };
 ///
 /// let backend = TestBackend::new(80, 24);
 /// let mut terminal = Terminal::new(backend).unwrap();
@@ -34,8 +64,15 @@ impl SettingsPanel {
     ///
     /// # Examples
     /// ```no_run
-    /// use ratatui::{backend::TestBackend, Terminal};
-    /// use toon_format::tui::{components::SettingsPanel, state::AppState, theme::Theme};
+    /// use ratatui::{
+    ///     backend::TestBackend,
+    ///     Terminal,
+    /// };
+    /// use toon_format::tui::{
+    ///     components::SettingsPanel,
+    ///     state::AppState,
+    ///     theme::Theme,
+    /// };
     ///
     /// let backend = TestBackend::new(80, 24);
     /// let mut terminal = Terminal::new(backend).unwrap();

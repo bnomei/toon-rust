@@ -1,4 +1,5 @@
 use std::sync::Arc;
+
 use thiserror::Error;
 
 /// Result type alias for TOON operations.
@@ -225,8 +226,7 @@ impl ErrorContext {
     /// ```
     /// use toon_format::types::ErrorContext;
     ///
-    /// let ctx = ErrorContext::new("line: value")
-    ///     .with_preceding_lines(vec!["prev".to_string()]);
+    /// let ctx = ErrorContext::new("line: value").with_preceding_lines(vec!["prev".to_string()]);
     /// let _ = ctx;
     /// ```
     pub fn with_preceding_lines(mut self, lines: Vec<String>) -> Self {
@@ -246,8 +246,7 @@ impl ErrorContext {
     /// ```
     /// use toon_format::types::ErrorContext;
     ///
-    /// let ctx = ErrorContext::new("line: value")
-    ///     .with_following_lines(vec!["next".to_string()]);
+    /// let ctx = ErrorContext::new("line: value").with_following_lines(vec!["next".to_string()]);
     /// let _ = ctx;
     /// ```
     pub fn with_following_lines(mut self, lines: Vec<String>) -> Self {
@@ -267,8 +266,7 @@ impl ErrorContext {
     /// ```
     /// use toon_format::types::ErrorContext;
     ///
-    /// let ctx = ErrorContext::new("line: value")
-    ///     .with_suggestion("check spacing");
+    /// let ctx = ErrorContext::new("line: value").with_suggestion("check spacing");
     /// let _ = ctx;
     /// ```
     pub fn with_suggestion(mut self, suggestion: impl Into<String>) -> Self {
@@ -282,8 +280,7 @@ impl ErrorContext {
     /// ```
     /// use toon_format::types::ErrorContext;
     ///
-    /// let ctx = ErrorContext::new("line: value")
-    ///     .with_indicator(3);
+    /// let ctx = ErrorContext::new("line: value").with_indicator(3);
     /// let _ = ctx;
     /// ```
     pub fn with_indicator(mut self, column: usize) -> Self {
@@ -325,6 +322,7 @@ impl ErrorContext {
     /// # Examples
     /// ```
     /// use std::sync::Arc;
+    ///
     /// use toon_format::types::ErrorContext;
     ///
     /// let input: Arc<str> = Arc::from("a: 1");
@@ -396,8 +394,10 @@ impl ToonError {
     ///
     /// # Examples
     /// ```
-    /// use toon_format::ToonError;
-    /// use toon_format::types::ErrorContext;
+    /// use toon_format::{
+    ///     types::ErrorContext,
+    ///     ToonError,
+    /// };
     ///
     /// let ctx = ErrorContext::new("line: value");
     /// let err = ToonError::parse_error_with_context(1, 1, "bad", ctx);
@@ -467,8 +467,10 @@ impl ToonError {
     ///
     /// # Examples
     /// ```
-    /// use toon_format::ToonError;
-    /// use toon_format::types::ErrorContext;
+    /// use toon_format::{
+    ///     types::ErrorContext,
+    ///     ToonError,
+    /// };
     ///
     /// let ctx = ErrorContext::new("items[2]: a,b");
     /// let err = ToonError::length_mismatch_with_context(2, 3, ctx);
@@ -490,8 +492,10 @@ impl ToonError {
     ///
     /// # Examples
     /// ```
-    /// use toon_format::ToonError;
-    /// use toon_format::types::ErrorContext;
+    /// use toon_format::{
+    ///     types::ErrorContext,
+    ///     ToonError,
+    /// };
     ///
     /// let ctx = ErrorContext::new("line: value");
     /// let err = ToonError::parse_error(1, 1, "bad").with_context(ctx);
@@ -527,8 +531,7 @@ impl ToonError {
     /// ```
     /// use toon_format::ToonError;
     ///
-    /// let err = ToonError::parse_error(1, 1, "bad")
-    ///     .with_suggestion("check spacing");
+    /// let err = ToonError::parse_error(1, 1, "bad").with_suggestion("check spacing");
     /// let _ = err;
     /// ```
     pub fn with_suggestion(self, suggestion: impl Into<String>) -> Self {

@@ -4,17 +4,31 @@ pub mod string;
 pub mod validation;
 
 use indexmap::IndexMap;
-pub use literal::{is_keyword, is_literal_like, is_numeric_like, is_structural_char};
-pub use number::{format_canonical_number, write_canonical_number_into};
+pub use literal::{
+    is_keyword,
+    is_literal_like,
+    is_numeric_like,
+    is_structural_char,
+};
+pub use number::{
+    format_canonical_number,
+    write_canonical_number_into,
+};
+#[cfg(feature = "parallel")]
+use rayon::prelude::*;
 pub use string::{
-    escape_string, escape_string_into, is_valid_unquoted_key, needs_quoting, quote_string,
+    escape_string,
+    escape_string_into,
+    is_valid_unquoted_key,
+    needs_quoting,
+    quote_string,
     unescape_string,
 };
 
-#[cfg(feature = "parallel")]
-use rayon::prelude::*;
-
-use crate::types::{JsonValue as Value, Number};
+use crate::types::{
+    JsonValue as Value,
+    Number,
+};
 
 /// Context for determining when quoting is needed.
 ///

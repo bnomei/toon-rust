@@ -1,10 +1,23 @@
 use std::io::Cursor;
 
-use serde::{Deserialize, Serialize};
+use serde::{
+    Deserialize,
+    Serialize,
+};
 use serde_json::json;
 use toon_format::{
-    from_reader, from_slice, from_str, from_str_with_options, to_string, to_string_with_options,
-    to_vec, to_writer, DecodeOptions, Delimiter, EncodeOptions, ToonError,
+    from_reader,
+    from_slice,
+    from_str,
+    from_str_with_options,
+    to_string,
+    to_string_with_options,
+    to_vec,
+    to_writer,
+    DecodeOptions,
+    Delimiter,
+    EncodeOptions,
+    ToonError,
 };
 
 #[derive(Debug, Serialize, Deserialize, PartialEq)]

@@ -1,5 +1,8 @@
 use serde_json::json;
-use toon_format::{decode, DecodeOptions};
+use toon_format::{
+    decode,
+    DecodeOptions,
+};
 
 #[test]
 fn test_negative_array_length_rejected() {

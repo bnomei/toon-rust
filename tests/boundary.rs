@@ -1,8 +1,13 @@
 //! Boundary condition tests
 
 use serde_json::json;
-use toon_format::constants::MAX_DEPTH;
-use toon_format::{decode, encode, DecodeOptions, EncodeOptions};
+use toon_format::{
+    constants::MAX_DEPTH,
+    decode,
+    encode,
+    DecodeOptions,
+    EncodeOptions,
+};
 
 #[test]
 fn test_max_depth_boundary() {

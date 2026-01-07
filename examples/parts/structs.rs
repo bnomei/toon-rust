@@ -1,5 +1,11 @@
-use serde::{Deserialize, Serialize};
-use toon_format::{decode_default, encode_default};
+use serde::{
+    Deserialize,
+    Serialize,
+};
+use toon_format::{
+    decode_default,
+    encode_default,
+};
 
 #[derive(Debug, Serialize, Deserialize, PartialEq)]
 struct User {

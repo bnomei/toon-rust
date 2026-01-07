@@ -35,7 +35,10 @@ pub struct ReplState {
 ///
 /// # Examples
 /// ```
-/// use toon_format::tui::state::{ReplLine, ReplLineKind};
+/// use toon_format::tui::state::{
+///     ReplLine,
+///     ReplLineKind,
+/// };
 ///
 /// let line = ReplLine {
 ///     kind: ReplLineKind::Info,

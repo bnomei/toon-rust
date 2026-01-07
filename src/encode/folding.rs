@@ -1,6 +1,10 @@
 use std::collections::HashSet;
 
-use crate::types::{is_identifier_segment, JsonValue as Value, KeyFoldingMode};
+use crate::types::{
+    is_identifier_segment,
+    JsonValue as Value,
+    KeyFoldingMode,
+};
 
 /// Result of chain analysis for folding.
 ///
@@ -108,8 +112,10 @@ pub fn analyze_foldable_chain<'a>(
 ///
 /// # Examples
 /// ```
-/// use toon_format::encode::folding::should_fold;
-/// use toon_format::types::KeyFoldingMode;
+/// use toon_format::{
+///     encode::folding::should_fold,
+///     types::KeyFoldingMode,
+/// };
 ///
 /// assert!(!should_fold(KeyFoldingMode::Off, &None));
 /// ```
@@ -122,8 +128,9 @@ pub fn should_fold(mode: KeyFoldingMode, chain: &Option<FoldableChain>) -> bool 
 
 #[cfg(test)]
 mod tests {
-    use serde_json::json;
     use std::collections::HashSet;
+
+    use serde_json::json;
 
     use super::*;
 

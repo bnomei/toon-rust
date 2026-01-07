@@ -1,6 +1,9 @@
 use std::{
     fmt,
-    ops::{Index, IndexMut},
+    ops::{
+        Index,
+        IndexMut,
+    },
 };
 
 use indexmap::IndexMap;
@@ -337,7 +340,10 @@ impl JsonValue {
     ///
     /// # Examples
     /// ```
-    /// use toon_format::types::{JsonValue, Number};
+    /// use toon_format::types::{
+    ///     JsonValue,
+    ///     Number,
+    /// };
     ///
     /// let value = JsonValue::Number(Number::from(1u64));
     /// assert!(value.is_number());
@@ -392,7 +398,10 @@ impl JsonValue {
     ///
     /// # Examples
     /// ```
-    /// use toon_format::types::{JsonValue, Number};
+    /// use toon_format::types::{
+    ///     JsonValue,
+    ///     Number,
+    /// };
     ///
     /// let value = JsonValue::Number(Number::from(1i64));
     /// assert!(value.is_i64());
@@ -408,7 +417,10 @@ impl JsonValue {
     ///
     /// # Examples
     /// ```
-    /// use toon_format::types::{JsonValue, Number};
+    /// use toon_format::types::{
+    ///     JsonValue,
+    ///     Number,
+    /// };
     ///
     /// let value = JsonValue::Number(Number::from(1u64));
     /// assert!(value.is_u64());
@@ -424,7 +436,10 @@ impl JsonValue {
     ///
     /// # Examples
     /// ```
-    /// use toon_format::types::{JsonValue, Number};
+    /// use toon_format::types::{
+    ///     JsonValue,
+    ///     Number,
+    /// };
     ///
     /// let value = JsonValue::Number(Number::from(1.5f64));
     /// assert!(value.is_f64());
@@ -458,7 +473,10 @@ impl JsonValue {
     ///
     /// # Examples
     /// ```
-    /// use toon_format::types::{JsonValue, Number};
+    /// use toon_format::types::{
+    ///     JsonValue,
+    ///     Number,
+    /// };
     ///
     /// let value = JsonValue::Number(Number::from(5i64));
     /// assert_eq!(value.as_i64(), Some(5));
@@ -475,7 +493,10 @@ impl JsonValue {
     ///
     /// # Examples
     /// ```
-    /// use toon_format::types::{JsonValue, Number};
+    /// use toon_format::types::{
+    ///     JsonValue,
+    ///     Number,
+    /// };
     ///
     /// let value = JsonValue::Number(Number::from(5u64));
     /// assert_eq!(value.as_u64(), Some(5));
@@ -492,7 +513,10 @@ impl JsonValue {
     ///
     /// # Examples
     /// ```
-    /// use toon_format::types::{JsonValue, Number};
+    /// use toon_format::types::{
+    ///     JsonValue,
+    ///     Number,
+    /// };
     ///
     /// let value = JsonValue::Number(Number::from(5u64));
     /// assert_eq!(value.as_f64(), Some(5.0));

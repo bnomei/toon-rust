@@ -43,32 +43,79 @@ pub mod types;
 pub mod utils;
 
 pub use decode::{
-    decode, decode_default, decode_no_coerce, decode_no_coerce_with_options, decode_strict,
+    decode,
+    decode_default,
+    decode_no_coerce,
+    decode_no_coerce_with_options,
+    decode_strict,
     decode_strict_with_options,
 };
-pub use encode::{encode, encode_array, encode_default, encode_object};
+pub use encode::{
+    encode,
+    encode_array,
+    encode_default,
+    encode_object,
+};
 pub use serde::{
-    from_reader, from_reader_with_options, from_slice, from_slice_with_options, from_str,
-    from_str_with_options, to_string, to_string_with_options, to_vec, to_writer,
+    from_reader,
+    from_reader_with_options,
+    from_slice,
+    from_slice_with_options,
+    from_str,
+    from_str_with_options,
+    to_string,
+    to_string_with_options,
+    to_vec,
+    to_writer,
     to_writer_with_options,
 };
-pub use types::{DecodeOptions, Delimiter, EncodeOptions, Indent, ToonError};
+pub use types::{
+    DecodeOptions,
+    Delimiter,
+    EncodeOptions,
+    Indent,
+    ToonError,
+};
 pub use utils::{
-    literal::{is_keyword, is_literal_like},
+    literal::{
+        is_keyword,
+        is_literal_like,
+    },
     normalize,
-    string::{escape_string, is_valid_unquoted_key, needs_quoting},
+    string::{
+        escape_string,
+        is_valid_unquoted_key,
+        needs_quoting,
+    },
 };
 
 #[cfg(test)]
 mod tests {
-    use serde_json::{json, Value};
+    use serde_json::{
+        json,
+        Value,
+    };
 
     use crate::{
         constants::is_keyword,
-        decode::{decode_default, decode_strict},
-        encode::{encode, encode_default},
-        types::{Delimiter, EncodeOptions},
-        utils::{escape_string, is_literal_like, needs_quoting, normalize},
+        decode::{
+            decode_default,
+            decode_strict,
+        },
+        encode::{
+            encode,
+            encode_default,
+        },
+        types::{
+            Delimiter,
+            EncodeOptions,
+        },
+        utils::{
+            escape_string,
+            is_literal_like,
+            needs_quoting,
+            normalize,
+        },
     };
 
     #[test]
@@ -135,7 +182,10 @@ mod tests {
         assert!(needs_quoting("true", Delimiter::Comma.as_char()));
     }
 
-    use serde::{Deserialize, Serialize};
+    use serde::{
+        Deserialize,
+        Serialize,
+    };
 
     #[derive(Debug, Serialize, Deserialize, PartialEq)]
     struct TestUser {
@@ -146,7 +196,10 @@ mod tests {
 
     #[test]
     fn test_encode_decode_simple_struct() {
-        use crate::{decode_default, encode_default};
+        use crate::{
+            decode_default,
+            encode_default,
+        };
 
         let user = TestUser {
             name: "Alice".to_string(),
@@ -172,7 +225,10 @@ mod tests {
 
     #[test]
     fn test_encode_decode_with_array() {
-        use crate::{decode_default, encode_default};
+        use crate::{
+            decode_default,
+            encode_default,
+        };
 
         let product = TestProduct {
             id: 42,
@@ -187,7 +243,10 @@ mod tests {
 
     #[test]
     fn test_encode_decode_vec_of_structs() {
-        use crate::{decode_default, encode_default};
+        use crate::{
+            decode_default,
+            encode_default,
+        };
 
         let users = vec![
             TestUser {
@@ -225,7 +284,10 @@ mod tests {
 
     #[test]
     fn test_encode_decode_nested_structs() {
-        use crate::{decode_default, encode_default};
+        use crate::{
+            decode_default,
+            encode_default,
+        };
 
         let nested = Nested {
             outer: OuterStruct {
@@ -243,7 +305,10 @@ mod tests {
 
     #[test]
     fn test_round_trip_list_item_tabular_v3() {
-        use crate::{decode_default, encode_default};
+        use crate::{
+            decode_default,
+            encode_default,
+        };
 
         let original = json!({
             "items": [
@@ -266,7 +331,10 @@ mod tests {
 
     #[test]
     fn test_round_trip_complex_list_item_tabular_v3() {
-        use crate::{decode_default, encode_default};
+        use crate::{
+            decode_default,
+            encode_default,
+        };
 
         let original = json!({
             "data": [
@@ -296,7 +364,10 @@ mod tests {
 
     #[test]
     fn test_round_trip_mixed_list_items_v3() {
-        use crate::{decode_default, encode_default};
+        use crate::{
+            decode_default,
+            encode_default,
+        };
 
         let original = json!({
             "entries": [

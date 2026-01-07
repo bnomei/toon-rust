@@ -1,5 +1,10 @@
 use serde_json::Value;
-use toon_format::{decode, decode_strict, DecodeOptions, Delimiter};
+use toon_format::{
+    decode,
+    decode_strict,
+    DecodeOptions,
+    Delimiter,
+};
 
 #[test]
 fn test_strict_rejects_multiple_root_values() {

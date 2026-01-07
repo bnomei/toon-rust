@@ -3,7 +3,10 @@
 use std::path::PathBuf;
 
 #[cfg(feature = "tui-time")]
-use chrono::{DateTime, Local};
+use chrono::{
+    DateTime,
+    Local,
+};
 
 /// Timestamp type for UI history entries.
 ///
@@ -77,6 +80,7 @@ pub fn format_timestamp(timestamp: &Option<Timestamp>) -> String {
 /// # Examples
 /// ```
 /// use std::path::PathBuf;
+///
 /// use toon_format::tui::state::file_state::FileEntry;
 ///
 /// let entry = FileEntry {
@@ -101,6 +105,7 @@ impl FileEntry {
     /// # Examples
     /// ```
     /// use std::path::PathBuf;
+    ///
     /// use toon_format::tui::state::file_state::FileEntry;
     ///
     /// let entry = FileEntry {
@@ -124,6 +129,7 @@ impl FileEntry {
     /// # Examples
     /// ```
     /// use std::path::PathBuf;
+    ///
     /// use toon_format::tui::state::file_state::FileEntry;
     ///
     /// let entry = FileEntry {
@@ -143,6 +149,7 @@ impl FileEntry {
     /// # Examples
     /// ```
     /// use std::path::PathBuf;
+    ///
     /// use toon_format::tui::state::file_state::FileEntry;
     ///
     /// let entry = FileEntry {
@@ -226,6 +233,7 @@ impl FileState {
     /// # Examples
     /// ```
     /// use std::path::PathBuf;
+    ///
     /// use toon_format::tui::state::FileState;
     ///
     /// let mut state = FileState::new();
@@ -271,7 +279,10 @@ impl FileState {
     ///
     /// # Examples
     /// ```
-    /// use toon_format::tui::state::{ConversionHistory, FileState};
+    /// use toon_format::tui::state::{
+    ///     ConversionHistory,
+    ///     FileState,
+    /// };
     ///
     /// let mut state = FileState::new();
     /// state.add_to_history(ConversionHistory {
@@ -295,6 +306,7 @@ impl FileState {
     /// # Examples
     /// ```
     /// use std::path::PathBuf;
+    ///
     /// use toon_format::tui::state::FileState;
     ///
     /// let mut state = FileState::new();
@@ -326,6 +338,7 @@ impl FileState {
     /// # Examples
     /// ```
     /// use std::path::PathBuf;
+    ///
     /// use toon_format::tui::state::FileState;
     ///
     /// let state = FileState::new();

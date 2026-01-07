@@ -1,6 +1,10 @@
 use crate::{
     constants::DEFAULT_INDENT,
-    types::{Delimiter, KeyFoldingMode, PathExpansionMode},
+    types::{
+        Delimiter,
+        KeyFoldingMode,
+        PathExpansionMode,
+    },
 };
 
 /// Indentation style used for nested structures.
@@ -69,7 +73,10 @@ impl Indent {
 ///
 /// # Examples
 /// ```
-/// use toon_format::{Delimiter, EncodeOptions};
+/// use toon_format::{
+///     Delimiter,
+///     EncodeOptions,
+/// };
 ///
 /// let opts = EncodeOptions::new().with_delimiter(Delimiter::Pipe);
 /// let _ = opts;
@@ -111,7 +118,10 @@ impl EncodeOptions {
     ///
     /// # Examples
     /// ```
-    /// use toon_format::{Delimiter, EncodeOptions};
+    /// use toon_format::{
+    ///     Delimiter,
+    ///     EncodeOptions,
+    /// };
     ///
     /// let opts = EncodeOptions::new().with_delimiter(Delimiter::Tab);
     /// let _ = opts;
@@ -125,7 +135,10 @@ impl EncodeOptions {
     ///
     /// # Examples
     /// ```
-    /// use toon_format::{EncodeOptions, Indent};
+    /// use toon_format::{
+    ///     EncodeOptions,
+    ///     Indent,
+    /// };
     ///
     /// let opts = EncodeOptions::new().with_indent(Indent::Spaces(4));
     /// let _ = opts;
@@ -158,8 +171,10 @@ impl EncodeOptions {
     ///
     /// # Examples
     /// ```
-    /// use toon_format::EncodeOptions;
-    /// use toon_format::types::KeyFoldingMode;
+    /// use toon_format::{
+    ///     types::KeyFoldingMode,
+    ///     EncodeOptions,
+    /// };
     ///
     /// let opts = EncodeOptions::new().with_key_folding(KeyFoldingMode::Safe);
     /// let _ = opts;
@@ -178,8 +193,10 @@ impl EncodeOptions {
     ///
     /// # Examples
     /// ```
-    /// use toon_format::EncodeOptions;
-    /// use toon_format::types::KeyFoldingMode;
+    /// use toon_format::{
+    ///     types::KeyFoldingMode,
+    ///     EncodeOptions,
+    /// };
     ///
     /// let opts = EncodeOptions::new()
     ///     .with_key_folding(KeyFoldingMode::Safe)
@@ -255,7 +272,10 @@ impl DecodeOptions {
     ///
     /// # Examples
     /// ```
-    /// use toon_format::{DecodeOptions, Delimiter};
+    /// use toon_format::{
+    ///     DecodeOptions,
+    ///     Delimiter,
+    /// };
     ///
     /// let opts = DecodeOptions::new().with_delimiter(Delimiter::Pipe);
     /// let _ = opts;
@@ -283,7 +303,10 @@ impl DecodeOptions {
     ///
     /// # Examples
     /// ```
-    /// use toon_format::{DecodeOptions, Indent};
+    /// use toon_format::{
+    ///     DecodeOptions,
+    ///     Indent,
+    /// };
     ///
     /// let opts = DecodeOptions::new().with_indent(Indent::Spaces(2));
     /// let _ = opts;
@@ -306,8 +329,10 @@ impl DecodeOptions {
     ///
     /// # Examples
     /// ```
-    /// use toon_format::DecodeOptions;
-    /// use toon_format::types::PathExpansionMode;
+    /// use toon_format::{
+    ///     types::PathExpansionMode,
+    ///     DecodeOptions,
+    /// };
     ///
     /// let opts = DecodeOptions::new().with_expand_paths(PathExpansionMode::Safe);
     /// let _ = opts;

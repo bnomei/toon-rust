@@ -1,8 +1,12 @@
 //! Spec compliance edge cases
 
 use serde_json::json;
-use toon_format::types::PathExpansionMode;
-use toon_format::{decode, decode_default, DecodeOptions};
+use toon_format::{
+    decode,
+    decode_default,
+    types::PathExpansionMode,
+    DecodeOptions,
+};
 
 #[test]
 fn test_keyword_keys_allowed() {

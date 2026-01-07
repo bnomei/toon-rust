@@ -1,6 +1,10 @@
 //! Keyboard shortcuts and action mapping.
 
-use crossterm::event::{KeyCode, KeyEvent, KeyModifiers};
+use crossterm::event::{
+    KeyCode,
+    KeyEvent,
+    KeyModifiers,
+};
 
 /// Actions that can be triggered by keyboard shortcuts.
 ///
@@ -39,8 +43,12 @@ pub enum Action {
 ///
 /// # Examples
 /// ```no_run
+/// use crossterm::event::{
+///     KeyCode,
+///     KeyEvent,
+///     KeyModifiers,
+/// };
 /// use toon_format::tui::keybindings::KeyBindings;
-/// use crossterm::event::{KeyCode, KeyEvent, KeyModifiers};
 ///
 /// let action = KeyBindings::handle(KeyEvent::new(KeyCode::Char('c'), KeyModifiers::CONTROL));
 /// let _ = action;
@@ -52,8 +60,12 @@ impl KeyBindings {
     ///
     /// # Examples
     /// ```no_run
+    /// use crossterm::event::{
+    ///     KeyCode,
+    ///     KeyEvent,
+    ///     KeyModifiers,
+    /// };
     /// use toon_format::tui::keybindings::KeyBindings;
-    /// use crossterm::event::{KeyCode, KeyEvent, KeyModifiers};
     ///
     /// let action = KeyBindings::handle(KeyEvent::new(KeyCode::Char('c'), KeyModifiers::CONTROL));
     /// let _ = action;

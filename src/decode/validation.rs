@@ -1,5 +1,9 @@
-use crate::types::{ToonError, ToonResult};
 use std::collections::HashSet;
+
+use crate::types::{
+    ToonError,
+    ToonResult,
+};
 
 /// Validate that an array length matches the header value.
 ///
@@ -94,12 +98,12 @@ pub fn validate_row_length(
 ///
 /// # Examples
 /// ```
-/// use toon_format::decode::validation::validate_delimiter_consistency;
-/// use toon_format::Delimiter;
+/// use toon_format::{
+///     decode::validation::validate_delimiter_consistency,
+///     Delimiter,
+/// };
 ///
-/// assert!(
-///     validate_delimiter_consistency(Some(Delimiter::Comma), Some(Delimiter::Comma)).is_ok()
-/// );
+/// assert!(validate_delimiter_consistency(Some(Delimiter::Comma), Some(Delimiter::Comma)).is_ok());
 /// ```
 pub fn validate_delimiter_consistency(
     detected: Option<crate::types::Delimiter>,

@@ -1,19 +1,49 @@
 use ratatui::{
-    layout::{Constraint, Direction, Layout, Margin, Rect},
-    style::{Color, Modifier, Style},
-    text::{Line, Span},
-    widgets::{Block, Borders, Paragraph, Scrollbar, ScrollbarOrientation, ScrollbarState, Wrap},
+    layout::{
+        Constraint,
+        Direction,
+        Layout,
+        Margin,
+        Rect,
+    },
+    style::{
+        Color,
+        Modifier,
+        Style,
+    },
+    text::{
+        Line,
+        Span,
+    },
+    widgets::{
+        Block,
+        Borders,
+        Paragraph,
+        Scrollbar,
+        ScrollbarOrientation,
+        ScrollbarState,
+        Wrap,
+    },
     Frame,
 };
 
-use crate::tui::state::{AppState, ReplLineKind};
+use crate::tui::state::{
+    AppState,
+    ReplLineKind,
+};
 
 /// REPL panel rendering.
 ///
 /// # Examples
 /// ```no_run
-/// use ratatui::{backend::TestBackend, Terminal};
-/// use toon_format::tui::{components::ReplPanel, state::AppState};
+/// use ratatui::{
+///     backend::TestBackend,
+///     Terminal,
+/// };
+/// use toon_format::tui::{
+///     components::ReplPanel,
+///     state::AppState,
+/// };
 ///
 /// let backend = TestBackend::new(80, 24);
 /// let mut terminal = Terminal::new(backend).unwrap();
@@ -29,8 +59,14 @@ impl ReplPanel {
     ///
     /// # Examples
     /// ```no_run
-    /// use ratatui::{backend::TestBackend, Terminal};
-    /// use toon_format::tui::{components::ReplPanel, state::AppState};
+    /// use ratatui::{
+    ///     backend::TestBackend,
+    ///     Terminal,
+    /// };
+    /// use toon_format::tui::{
+    ///     components::ReplPanel,
+    ///     state::AppState,
+    /// };
     ///
     /// let backend = TestBackend::new(80, 24);
     /// let mut terminal = Terminal::new(backend).unwrap();
