@@ -1288,8 +1288,9 @@ impl Parser {
                                                 self.skip_newlines()?;
                                             }
                                         } else if self.is_key_token() {
-                                            let current_indent = self
-                                                .normalize_indent(self.scanner.get_last_line_indent());
+                                            let current_indent = self.normalize_indent(
+                                                self.scanner.get_last_line_indent(),
+                                            );
                                             if current_indent < field_indent {
                                                 break;
                                             }
@@ -1480,8 +1481,9 @@ impl Parser {
                                             self.advance()?;
                                             self.skip_newlines()?;
                                         } else if self.is_key_token() {
-                                            let current_indent = self
-                                                .normalize_indent(self.scanner.get_last_line_indent());
+                                            let current_indent = self.normalize_indent(
+                                                self.scanner.get_last_line_indent(),
+                                            );
                                             if current_indent < field_indent {
                                                 break;
                                             }
