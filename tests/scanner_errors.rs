@@ -1,5 +1,10 @@
-use toon_format::decode::scanner::{Scanner, Token};
-use toon_format::ToonError;
+use toon_format::{
+    decode::scanner::{
+        Scanner,
+        Token,
+    },
+    ToonError,
+};
 
 #[test]
 fn test_tabs_in_indentation_rejected() {

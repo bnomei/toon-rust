@@ -1,7 +1,15 @@
 use indexmap::IndexMap;
 use serde_json::json;
-use toon_format::types::{JsonValue, Number};
-use toon_format::{encode_array, encode_object, EncodeOptions, ToonError};
+use toon_format::{
+    encode_array,
+    encode_object,
+    types::{
+        JsonValue,
+        Number,
+    },
+    EncodeOptions,
+    ToonError,
+};
 
 #[test]
 fn test_encode_array_and_object_with_json() {

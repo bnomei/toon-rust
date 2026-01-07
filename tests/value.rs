@@ -1,8 +1,15 @@
-use std::panic::{catch_unwind, AssertUnwindSafe};
+use std::panic::{
+    catch_unwind,
+    AssertUnwindSafe,
+};
 
 use indexmap::IndexMap;
 use serde_json::json;
-use toon_format::types::{IntoJsonValue, JsonValue, Number};
+use toon_format::types::{
+    IntoJsonValue,
+    JsonValue,
+    Number,
+};
 
 #[test]
 fn test_number_from_f64_rejects_non_finite() {

@@ -1,9 +1,21 @@
-use std::io::{Read, Write};
+use std::io::{
+    Read,
+    Write,
+};
 
-use ::serde::{de::DeserializeOwned, Serialize};
+use ::serde::{
+    de::DeserializeOwned,
+    Serialize,
+};
 
-use crate::types::ToonResult;
-use crate::{decode, encode, DecodeOptions, EncodeOptions, ToonError};
+use crate::{
+    decode,
+    encode,
+    types::ToonResult,
+    DecodeOptions,
+    EncodeOptions,
+    ToonError,
+};
 
 /// Serialize a value to a TOON string using default options.
 ///

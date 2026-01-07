@@ -1,6 +1,10 @@
 //! Color themes for the TUI.
 
-use ratatui::style::{Color, Modifier, Style};
+use ratatui::style::{
+    Color,
+    Modifier,
+    Style,
+};
 
 /// Available color themes.
 ///

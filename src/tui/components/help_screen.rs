@@ -1,20 +1,44 @@
 //! Help screen showing keyboard shortcuts.
 
 use ratatui::{
-    layout::{Alignment, Constraint, Direction, Layout, Rect},
-    text::{Line, Span},
-    widgets::{Block, Borders, List, ListItem, Paragraph},
+    layout::{
+        Alignment,
+        Constraint,
+        Direction,
+        Layout,
+        Rect,
+    },
+    text::{
+        Line,
+        Span,
+    },
+    widgets::{
+        Block,
+        Borders,
+        List,
+        ListItem,
+        Paragraph,
+    },
     Frame,
 };
 
-use crate::tui::{keybindings::KeyBindings, theme::Theme};
+use crate::tui::{
+    keybindings::KeyBindings,
+    theme::Theme,
+};
 
 /// Help screen rendering.
 ///
 /// # Examples
 /// ```no_run
-/// use ratatui::{backend::TestBackend, Terminal};
-/// use toon_format::tui::{components::HelpScreen, theme::Theme};
+/// use ratatui::{
+///     backend::TestBackend,
+///     Terminal,
+/// };
+/// use toon_format::tui::{
+///     components::HelpScreen,
+///     theme::Theme,
+/// };
 ///
 /// let backend = TestBackend::new(80, 24);
 /// let mut terminal = Terminal::new(backend).unwrap();
@@ -30,8 +54,14 @@ impl HelpScreen {
     ///
     /// # Examples
     /// ```no_run
-    /// use ratatui::{backend::TestBackend, Terminal};
-    /// use toon_format::tui::{components::HelpScreen, theme::Theme};
+    /// use ratatui::{
+    ///     backend::TestBackend,
+    ///     Terminal,
+    /// };
+    /// use toon_format::tui::{
+    ///     components::HelpScreen,
+    ///     theme::Theme,
+    /// };
     ///
     /// let backend = TestBackend::new(80, 24);
     /// let mut terminal = Terminal::new(backend).unwrap();

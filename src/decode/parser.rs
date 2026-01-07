@@ -1,14 +1,36 @@
-use serde_json::{Map, Number, Value};
 use std::sync::Arc;
 
+use serde_json::{
+    Map,
+    Number,
+    Value,
+};
+
 use crate::{
-    constants::{KEYWORDS, MAX_DEPTH, QUOTED_KEY_MARKER},
+    constants::{
+        KEYWORDS,
+        MAX_DEPTH,
+        QUOTED_KEY_MARKER,
+    },
     decode::{
-        scanner::{Scanner, Token},
+        scanner::{
+            Scanner,
+            Token,
+        },
         validation,
     },
-    types::{DecodeOptions, Delimiter, ErrorContext, PathExpansionMode, ToonError, ToonResult},
-    utils::{is_valid_unquoted_key, validation::validate_depth},
+    types::{
+        DecodeOptions,
+        Delimiter,
+        ErrorContext,
+        PathExpansionMode,
+        ToonError,
+        ToonResult,
+    },
+    utils::{
+        is_valid_unquoted_key,
+        validation::validate_depth,
+    },
 };
 
 /// Context for parsing arrays to determine correct indentation depth.
@@ -30,8 +52,10 @@ enum ArrayParseContext {
 ///
 /// # Examples
 /// ```
-/// use toon_format::decode::parser::Parser;
-/// use toon_format::DecodeOptions;
+/// use toon_format::{
+///     decode::parser::Parser,
+///     DecodeOptions,
+/// };
 ///
 /// let mut parser = Parser::new("a: 1", DecodeOptions::default()).unwrap();
 /// let value = parser.parse().unwrap();
@@ -52,8 +76,10 @@ impl Parser {
     ///
     /// # Examples
     /// ```
-    /// use toon_format::decode::parser::Parser;
-    /// use toon_format::DecodeOptions;
+    /// use toon_format::{
+    ///     decode::parser::Parser,
+    ///     DecodeOptions,
+    /// };
     ///
     /// let parser = Parser::new("a: 1", DecodeOptions::default()).unwrap();
     /// let _ = parser;
@@ -81,8 +107,10 @@ impl Parser {
     ///
     /// # Examples
     /// ```
-    /// use toon_format::decode::parser::Parser;
-    /// use toon_format::DecodeOptions;
+    /// use toon_format::{
+    ///     decode::parser::Parser,
+    ///     DecodeOptions,
+    /// };
     ///
     /// let mut parser = Parser::new("a: 1", DecodeOptions::default()).unwrap();
     /// let value = parser.parse().unwrap();
@@ -1074,7 +1102,8 @@ impl Parser {
 
                         if !is_key_value {
                             return Err(self.parse_error_with_context(format!(
-                                "Array length mismatch: expected {length} rows, but more rows found",
+                                "Array length mismatch: expected {length} rows, but more rows \
+                                 found",
                             )));
                         }
                     }
@@ -1156,7 +1185,8 @@ impl Parser {
                                 let first_value =
                                     if matches!(self.current_token, Token::LeftBracket) {
                                         // Array directly after key (e.g., "- key[N]:")
-                                        // Use ListItemFirstField context to apply correct indentation
+                                        // Use ListItemFirstField context to apply correct
+                                        // indentation
                                         self.parse_array_with_context(
                                             depth + 1,
                                             ArrayParseContext::ListItemFirstField,
@@ -1165,7 +1195,8 @@ impl Parser {
                                         self.advance()?;
                                         // Handle nested arrays: "key: [2]: ..."
                                         if matches!(self.current_token, Token::LeftBracket) {
-                                            // Array after colon - not directly on hyphen line, use normal
+                                            // Array after colon - not directly on hyphen line, use
+                                            // normal
                                             // context
                                             self.parse_array(depth + 2)?
                                         } else {
@@ -1256,6 +1287,13 @@ impl Parser {
                                             if !self.options.strict {
                                                 self.skip_newlines()?;
                                             }
+                                        } else if self.is_key_token() {
+                                            let current_indent = self
+                                                .normalize_indent(self.scanner.get_last_line_indent());
+                                            if current_indent < field_indent {
+                                                break;
+                                            }
+                                            continue;
                                         } else {
                                             break;
                                         }
@@ -1287,7 +1325,8 @@ impl Parser {
                                     && matches!(self.current_token, Token::Newline)
                                 {
                                     return Err(self.parse_error_with_context(
-                                        "Blank lines are not allowed inside list arrays in strict mode",
+                                        "Blank lines are not allowed inside list arrays in strict \
+                                         mode",
                                     ));
                                 }
 
@@ -1311,8 +1350,8 @@ impl Parser {
                                 && matches!(self.current_token, Token::Dash)
                             {
                                 return Err(self.parse_error_with_context(format!(
-                                    "Array length mismatch: expected {length} items, but more items \
-                                     found",
+                                    "Array length mismatch: expected {length} items, but more \
+                                     items found",
                                 )));
                             }
                         }
@@ -1440,6 +1479,13 @@ impl Parser {
                                             }
                                             self.advance()?;
                                             self.skip_newlines()?;
+                                        } else if self.is_key_token() {
+                                            let current_indent = self
+                                                .normalize_indent(self.scanner.get_last_line_indent());
+                                            if current_indent < field_indent {
+                                                break;
+                                            }
+                                            continue;
                                         } else {
                                             break;
                                         }
@@ -1878,7 +1924,10 @@ mod tests {
 
     #[test]
     fn test_round_trip_parentheses() {
-        use crate::{decode::decode_default, encode::encode_default};
+        use crate::{
+            decode::decode_default,
+            encode::encode_default,
+        };
 
         let original = json!({
             "message": "Mostly Functions (3 of 3)",

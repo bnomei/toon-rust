@@ -42,7 +42,8 @@ pub fn is_structural_char(ch: char) -> bool {
     constants::is_structural_char(ch)
 }
 
-/// Returns true when the string looks like a number (starts with digit, no leading zeros).
+/// Returns true when the string looks like a number (starts with digit, no
+/// leading zeros).
 ///
 /// # Examples
 /// ```

@@ -2,7 +2,11 @@ use std::sync::Arc;
 
 use crate::{
     constants::DEFAULT_INDENT,
-    types::{Delimiter, ToonError, ToonResult},
+    types::{
+        Delimiter,
+        ToonError,
+        ToonResult,
+    },
 };
 
 /// Tokens produced by the scanner during lexical analysis.
@@ -80,6 +84,7 @@ impl Scanner {
     /// # Examples
     /// ```
     /// use std::sync::Arc;
+    ///
     /// use toon_format::decode::scanner::Scanner;
     ///
     /// let scanner = Scanner::from_shared_input(Arc::from("a: 1"));
@@ -104,8 +109,10 @@ impl Scanner {
     ///
     /// # Examples
     /// ```
-    /// use toon_format::decode::scanner::Scanner;
-    /// use toon_format::Delimiter;
+    /// use toon_format::{
+    ///     decode::scanner::Scanner,
+    ///     Delimiter,
+    /// };
     ///
     /// let mut scanner = Scanner::new("a: 1");
     /// scanner.set_active_delimiter(Some(Delimiter::Pipe));
@@ -364,7 +371,10 @@ impl Scanner {
     ///
     /// # Examples
     /// ```
-    /// use toon_format::decode::scanner::{Scanner, Token};
+    /// use toon_format::decode::scanner::{
+    ///     Scanner,
+    ///     Token,
+    /// };
     ///
     /// let mut scanner = Scanner::new("[");
     /// assert_eq!(scanner.scan_token().unwrap(), Token::LeftBracket);
@@ -760,10 +770,16 @@ impl Scanner {
     ///
     /// # Examples
     /// ```
-    /// use toon_format::decode::scanner::{Scanner, Token};
+    /// use toon_format::decode::scanner::{
+    ///     Scanner,
+    ///     Token,
+    /// };
     ///
     /// let scanner = Scanner::new("");
-    /// assert_eq!(scanner.parse_value_string("true").unwrap(), Token::Bool(true));
+    /// assert_eq!(
+    ///     scanner.parse_value_string("true").unwrap(),
+    ///     Token::Bool(true)
+    /// );
     /// ```
     pub fn parse_value_string(&self, s: &str) -> ToonResult<Token> {
         let trimmed = s.trim();
@@ -870,8 +886,10 @@ impl Scanner {
     ///
     /// # Examples
     /// ```
-    /// use toon_format::decode::scanner::Scanner;
-    /// use toon_format::Delimiter;
+    /// use toon_format::{
+    ///     decode::scanner::Scanner,
+    ///     Delimiter,
+    /// };
     ///
     /// let mut scanner = Scanner::new("a|b");
     /// assert_eq!(scanner.detect_delimiter(), Some(Delimiter::Pipe));

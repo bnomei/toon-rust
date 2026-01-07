@@ -1,6 +1,18 @@
-use criterion::{black_box, criterion_group, criterion_main, BenchmarkId, Criterion};
-use serde_json::{json, Value};
-use toon_format::{decode_default, encode_default};
+use criterion::{
+    black_box,
+    criterion_group,
+    criterion_main,
+    BenchmarkId,
+    Criterion,
+};
+use serde_json::{
+    json,
+    Value,
+};
+use toon_format::{
+    decode_default,
+    encode_default,
+};
 
 fn make_tabular(rows: usize) -> Value {
     let mut items = Vec::with_capacity(rows);

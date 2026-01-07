@@ -2,15 +2,25 @@
 pub mod folding;
 pub mod primitives;
 pub mod writer;
-use indexmap::IndexMap;
 use std::collections::HashSet;
+
+use indexmap::IndexMap;
 
 use crate::{
     constants::MAX_DEPTH,
     types::{
-        EncodeOptions, IntoJsonValue, JsonValue as Value, KeyFoldingMode, ToonError, ToonResult,
+        EncodeOptions,
+        IntoJsonValue,
+        JsonValue as Value,
+        KeyFoldingMode,
+        ToonError,
+        ToonResult,
     },
-    utils::{normalize, validation::validate_depth, QuotingContext},
+    utils::{
+        normalize,
+        validation::validate_depth,
+        QuotingContext,
+    },
 };
 
 /// Encode any serializable value to TOON format.
@@ -642,7 +652,7 @@ fn encode_nested_array(
                         match value {
                             Value::Array(arr) => {
                                 writer.write_key(key)?;
-                                write_array(writer, None, arr, depth + 1)?;
+                                write_array(writer, None, arr, depth + 2)?;
                             }
                             Value::Object(nested_obj) => {
                                 writer.write_key(key)?;

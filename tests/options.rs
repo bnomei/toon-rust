@@ -1,5 +1,13 @@
-use toon_format::types::{DecodeOptions, EncodeOptions, Indent, KeyFoldingMode, PathExpansionMode};
-use toon_format::Delimiter;
+use toon_format::{
+    types::{
+        DecodeOptions,
+        EncodeOptions,
+        Indent,
+        KeyFoldingMode,
+        PathExpansionMode,
+    },
+    Delimiter,
+};
 
 #[test]
 fn test_indent_helpers() {

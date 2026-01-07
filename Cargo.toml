@@ -67,3 +67,7 @@ harness = false
 [[bench]]
 name = "encode_decode"
 harness = false
+
+[[bench]]
+name = "serde_toon_vs_json_llm_fixtures"
+harness = false

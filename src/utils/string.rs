@@ -1,4 +1,7 @@
-use crate::{types::Delimiter, utils::literal};
+use crate::{
+    types::Delimiter,
+    utils::literal,
+};
 
 /// Escape special characters in a string for quoted output.
 ///
@@ -133,7 +136,8 @@ fn is_valid_unquoted_key_internal(key: &str, allow_hyphen: bool) -> bool {
     })
 }
 
-/// Check if a key can be written without quotes (alphanumeric, underscore, dot).
+/// Check if a key can be written without quotes (alphanumeric, underscore,
+/// dot).
 ///
 /// # Examples
 /// ```
@@ -231,8 +235,10 @@ pub fn quote_string(s: &str) -> String {
 ///
 /// # Examples
 /// ```
-/// use toon_format::types::Delimiter;
-/// use toon_format::utils::string::split_by_delimiter;
+/// use toon_format::{
+///     types::Delimiter,
+///     utils::string::split_by_delimiter,
+/// };
 ///
 /// let parts = split_by_delimiter("a,\"b,c\",d", Delimiter::Comma);
 /// assert_eq!(parts, vec!["a", "\"b,c\"", "d"]);

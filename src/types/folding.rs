@@ -34,7 +34,8 @@ pub enum PathExpansionMode {
     Safe,
 }
 
-/// Check if a key segment is a valid IdentifierSegment (stricter than unquoted keys).
+/// Check if a key segment is a valid IdentifierSegment (stricter than unquoted
+/// keys).
 ///
 /// # Examples
 /// ```

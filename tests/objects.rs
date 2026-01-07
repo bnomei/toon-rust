@@ -1,5 +1,11 @@
-use serde_json::{json, Value};
-use toon_format::{decode_default, encode_default};
+use serde_json::{
+    json,
+    Value,
+};
+use toon_format::{
+    decode_default,
+    encode_default,
+};
 
 #[test]
 fn test_special_characters_and_quoting() {

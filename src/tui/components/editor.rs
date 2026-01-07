@@ -2,18 +2,31 @@
 
 use ratatui::{
     layout::Rect,
-    widgets::{Block, Borders},
+    widgets::{
+        Block,
+        Borders,
+    },
     Frame,
 };
 
-use crate::tui::{state::AppState, theme::Theme};
+use crate::tui::{
+    state::AppState,
+    theme::Theme,
+};
 
 /// Editor panel rendering for input and output text.
 ///
 /// # Examples
 /// ```no_run
-/// use ratatui::{backend::TestBackend, Terminal};
-/// use toon_format::tui::{components::EditorComponent, state::AppState, theme::Theme};
+/// use ratatui::{
+///     backend::TestBackend,
+///     Terminal,
+/// };
+/// use toon_format::tui::{
+///     components::EditorComponent,
+///     state::AppState,
+///     theme::Theme,
+/// };
 ///
 /// let backend = TestBackend::new(80, 24);
 /// let mut terminal = Terminal::new(backend).unwrap();
@@ -30,8 +43,15 @@ impl EditorComponent {
     ///
     /// # Examples
     /// ```no_run
-    /// use ratatui::{backend::TestBackend, Terminal};
-    /// use toon_format::tui::{components::EditorComponent, state::AppState, theme::Theme};
+    /// use ratatui::{
+    ///     backend::TestBackend,
+    ///     Terminal,
+    /// };
+    /// use toon_format::tui::{
+    ///     components::EditorComponent,
+    ///     state::AppState,
+    ///     theme::Theme,
+    /// };
     ///
     /// let backend = TestBackend::new(80, 24);
     /// let mut terminal = Terminal::new(backend).unwrap();

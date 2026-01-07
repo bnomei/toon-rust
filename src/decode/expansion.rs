@@ -2,17 +2,28 @@ use indexmap::IndexMap;
 
 use crate::{
     constants::QUOTED_KEY_MARKER,
-    types::{is_identifier_segment, JsonValue as Value, PathExpansionMode, ToonError, ToonResult},
+    types::{
+        is_identifier_segment,
+        JsonValue as Value,
+        PathExpansionMode,
+        ToonError,
+        ToonResult,
+    },
 };
 
 /// Determine whether a dotted key should be expanded.
 ///
 /// # Examples
 /// ```
-/// use toon_format::decode::expansion::should_expand_key;
-/// use toon_format::types::PathExpansionMode;
+/// use toon_format::{
+///     decode::expansion::should_expand_key,
+///     types::PathExpansionMode,
+/// };
 ///
-/// assert_eq!(should_expand_key("a.b", PathExpansionMode::Safe), Some(vec!["a", "b"]));
+/// assert_eq!(
+///     should_expand_key("a.b", PathExpansionMode::Safe),
+///     Some(vec!["a", "b"])
+/// );
 /// ```
 pub fn should_expand_key(key: &str, mode: PathExpansionMode) -> Option<Vec<&str>> {
     match mode {
@@ -55,8 +66,10 @@ pub fn should_expand_key(key: &str, mode: PathExpansionMode) -> Option<Vec<&str>
 /// ```
 /// use indexmap::IndexMap;
 /// use serde_json::json;
-/// use toon_format::decode::expansion::deep_merge_value;
-/// use toon_format::types::JsonValue;
+/// use toon_format::{
+///     decode::expansion::deep_merge_value,
+///     types::JsonValue,
+/// };
 ///
 /// let mut target = IndexMap::new();
 /// deep_merge_value(&mut target, &["a", "b"], JsonValue::from(json!(1)), true).unwrap();
@@ -126,8 +139,13 @@ pub fn deep_merge_value(
 /// ```
 /// use indexmap::IndexMap;
 /// use serde_json::json;
-/// use toon_format::decode::expansion::expand_paths_in_object;
-/// use toon_format::types::{JsonValue, PathExpansionMode};
+/// use toon_format::{
+///     decode::expansion::expand_paths_in_object,
+///     types::{
+///         JsonValue,
+///         PathExpansionMode,
+///     },
+/// };
 ///
 /// let mut obj = IndexMap::new();
 /// obj.insert("a.b".to_string(), JsonValue::from(json!(1)));
